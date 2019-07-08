@@ -1,0 +1,25 @@
+{
+  "name": "maze_visionary",
+  "version": "1.0.0",
+  "description": "Maze Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olvinbolanos/maze_visionary.git"
+  },
+  "author": "Olvin Bolanos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olvinbolanos/maze_visionary/issues"
+  },
+  "homepage": "https://github.com/olvinbolanos/maze_visionary#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "jade": "^1.11.0",
+    "socket.io": "^2.2.0"
+  }
+}
