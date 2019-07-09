@@ -2,9 +2,9 @@
 
 let canvas;
 let ctx;
-let dx = 5;
-let dy = 5;
-let x = 200;
+let dx = 10;
+let dy = 10;
+let x = 218;
 let y = 5;
 //create the image element outside
 let img = new Image();
@@ -15,39 +15,28 @@ const HEIGHT = 482;
 
 
 //area canvas display
-// const drawMazeandRectangle = (rectX, rectY) => {
-//     makeWhite(0, 0, WIDTH, HEIGHT);
-//     img.onload = () => { //when the image is loaded, draw the image,
-//     //rectangle and circle
-//     ctx.drawImage(img, 0, 0);
-//     drawRectangle(rectX, rectY, '#0000FF', false, true);
-//     ctx.beginPath()
-//     ctx.arc(542, 122, 7, 0, 2 * Math.PI, false)
-//     ctx.closePath()
-//     ctx.fillStyle = '#00FF00'
-//     ctx.fill()
-//     }
-//     img.src = "images/maze3.png";
-// }
+const drawMazeandTargetToGetTo= (rectX, rectY) => {
+    makeWhite(0, 0, WIDTH, HEIGHT);
+    img.onload = () => { //when the image is loaded, draw the image,
+    //rectangle and circle
+    ctx.drawImage(img, 0, 0);
+    ctx.beginPath()
+    ctx.arc(255, 472, 7, 0, 2 * Math.PI, false)
+    ctx.closePath()
+    ctx.fillStyle = '#000342'
+    ctx.fill()
+    }
+    img.src = "images/maze3.png";
+}
 
-// const drawRectangle = (x, y, style) => {
-//   makeWhite(currRectX, currRectY, 15, 15);
-//   currRectX = x;
-//   currRectY = y;
-//   ctx.beginPath()
-//   ctx.rect(x, y, 15, 15)
-//   ctx.closePath()
-//   ctx.fillstyle = style;
-//   ctx.fill()
-// }
 
-// const makeWhie = (x, y, w, h) => {
-//   ctx.beginPath()
-//   ctx.rect(x, y, w, h)
-//   ctx.closePath()
-//   ctx.fillStyle = 'white'
-//   ctx.fill()
-// }
+const makeWhite = (x, y, w, h) => {
+  ctx.beginPath()
+  ctx.rect(x, y, w, h)
+  ctx.closePath()
+  ctx.fillStyle = 'purple'
+  ctx.fill()
+}
 
 //stops here
 
@@ -82,8 +71,8 @@ const clear = () =>{
 const init = () => {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-  img.src = "images/maze3.png";
-//   drawMazeandRectangle(425, 3)
+//   img.src = "images/maze3.png";
+  drawMazeandTargetToGetTo(452, 48)
   return setInterval(draw, 10);
 }
 
@@ -142,13 +131,14 @@ const doKeyDown = (evt) => {
     break;
     }
 }
-
+//this moves the rectangle within the canvas by checking its
+//bounds
 const checkcollision = () => {
     let imgd = ctx.getImageData(x, y, 15, 15);
     let pix = imgd.data;
     for (let i = 0; i < pix.length; i += 4) {
       if (pix[i] == 0) {
-      collision = 1;
+      collision = 1; //this means the rectangle can move
       }
     }
 }
@@ -156,12 +146,14 @@ const checkcollision = () => {
 // this is the drawing of our rectangle
 //filled with the color purple
 const draw = () => {
-  clear();
+//   clear();
+//   makeWhite(0, 0, WIDTH, HEIGHT);
   ctx.fillStyle = "purple";
   rect(x, y, 20, 20);
+
   
 }
-
+//instatiate the function init()
 init();
 
 //this is for the blue rectangle won't move anymore on
