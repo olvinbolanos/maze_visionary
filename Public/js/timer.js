@@ -56,3 +56,5 @@ const timer = () => {
   //clear the timer if it hits 10
  }
 
+ module.exports = startTimer;
+

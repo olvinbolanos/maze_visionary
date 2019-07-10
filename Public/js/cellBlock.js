@@ -1,3 +1,5 @@
+let startTimer = require('./timer');
+
 let canvas;
 let ctx;
 let time = document.querySelector('#time');
@@ -24,9 +26,8 @@ const drawMazeAndTarget= () => {
       ctx.beginPath()
       ctx.arc(120, 472, 7, 0, 2 * Math.PI, false)
       ctx.closePath()
-      ctx.fillStyle = 'red'
+      ctx.fillStyle = 'blue'
       ctx.fill()
-      // startTimer(minute, time)
     }
   img.src = "images/easyMaze.gif"; 
 }
@@ -65,6 +66,7 @@ const init = () => {
   ctx = canvas.getContext("2d");
   drawMazeAndTarget()
   return setInterval(draw, 100);
+  startTimer(15, time)
 }
 
 
@@ -89,6 +91,7 @@ const doKeyDown = (evt) => {
       if (y + dy < HEIGHT ){
         y += dy;
         clear();
+
         checkcollision();
         if (collision == 1){
           y -= dy;
@@ -126,21 +129,21 @@ const doKeyDown = (evt) => {
 //bounds
 const checkcollision = () => {
     let imgd = ctx.getImageData(x, y, 15, 15);
+    
     let pix = imgd.data;
-    console.log(pix[1])
     for (let i = 0; i < pix.length; i += 4) {
         if (pix[i] == 0) {
             collision = 1; //this means the rectangle can move
         }
     }
-    return imgd;
+    // return imgd;
 }
 
 const makeWhite = (x, y, w, h) => {
     ctx.beginPath();
     ctx.rect(x, y, w, h);
     ctx.closePath();
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = 'red';
     ctx.fill();
 }
 // this is the drawing of our rectangle
