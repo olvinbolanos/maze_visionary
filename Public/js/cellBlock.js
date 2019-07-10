@@ -1,42 +1,35 @@
-// import { isContext } from "vm";
-
 let canvas;
 let ctx;
-let dx = 10;
-let dy = 10;
-let x = 218;
-let y = 5;
+let time = document.querySelector('#time');
+let minute = 15;
+let dx = 5;
+let dy = 5;
+let x = 460;
+let y = 115;
 //create the image element outside
-let img = new Image();
+// let flag = new Image()
+let img = new Image()
+// flag.src = 'images/small-red-flag.jpg'
 let collision = 0;
 //make the canvas size the same as the image size
 const WIDTH = 482;
 const HEIGHT = 482;
+const displayTime = document.querySelector('#time');
 
 
 //area canvas display
-const drawMazeandTargetToGetTo= (rectX, rectY) => {
-    makeWhite(0, 0, WIDTH, HEIGHT);
+const drawMazeAndTarget= () => {
     img.onload = () => { //when the image is loaded, draw the image,
-    //rectangle and circle
-    ctx.drawImage(img, 0, 0);
-    ctx.beginPath()
-    ctx.arc(255, 472, 7, 0, 2 * Math.PI, false)
-    ctx.closePath()
-    ctx.fillStyle = '#000342'
-    ctx.fill()
+      ctx.drawImage(img, 0, 0)
+      ctx.beginPath()
+      ctx.arc(120, 472, 7, 0, 2 * Math.PI, false)
+      ctx.closePath()
+      ctx.fillStyle = 'red'
+      ctx.fill()
     }
-    img.src = "images/maze3.png";
+  img.src = "images/easyMaze.gif"; 
 }
 
-
-const makeWhite = (x, y, w, h) => {
-  ctx.beginPath()
-  ctx.rect(x, y, w, h)
-  ctx.closePath()
-  ctx.fillStyle = 'purple'
-  ctx.fill()
-}
 
 //stops here
 
@@ -71,9 +64,9 @@ const clear = () =>{
 const init = () => {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-//   img.src = "images/maze3.png";
-  drawMazeandTargetToGetTo(452, 48)
-  return setInterval(draw, 10);
+  drawMazeAndTarget()
+  startTimer(minute, time)
+  return setInterval(draw, 100);
 }
 
 
@@ -136,26 +129,30 @@ const doKeyDown = (evt) => {
 const checkcollision = () => {
     let imgd = ctx.getImageData(x, y, 15, 15);
     let pix = imgd.data;
+    console.log(pix[1])
     for (let i = 0; i < pix.length; i += 4) {
-      if (pix[i] == 0) {
-      collision = 1; //this means the rectangle can move
-      }
+        if (pix[i] == 0) {
+            collision = 1; //this means the rectangle can move
+        }
     }
+    return imgd;
 }
 
+const makeWhite = (x, y, w, h) => {
+    ctx.beginPath();
+    ctx.rect(x, y, w, h);
+    ctx.closePath();
+    ctx.fillStyle = 'white';
+    ctx.fill();
+}
 // this is the drawing of our rectangle
 //filled with the color purple
 const draw = () => {
-//   clear();
-//   makeWhite(0, 0, WIDTH, HEIGHT);
-  ctx.fillStyle = "purple";
-  rect(x, y, 20, 20);
-
-  
+  ctx.fillStyle = "green";
+  rect(x, y, 10, 10);
 }
 //instatiate the function init()
 init();
-
-//this is for the blue rectangle won't move anymore on
-//the screen when the button is not pressed anymore
-window.addEventListener('keydown',doKeyDown,true);
+checkcollision()
+//create my timer
+window.addEventListener('keydown', doKeyDown, true)

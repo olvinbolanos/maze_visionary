@@ -24,4 +24,3 @@ const Maze = () => {
     };
 }
 
-module.exports = player;
