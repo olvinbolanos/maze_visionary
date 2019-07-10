@@ -4,13 +4,14 @@ let time = document.querySelector('#time');
 let minute = 15;
 let dx = 5; 
 let dy = 5;
-let x = 460; //starting position for the square on X axis
-let y = 115; //starting position for the square on Y axis
+let x = 120; //starting position for the square on X axis
+let y = 440; //starting position for the square on Y axis
 //create the image element outside
-// let flag = new Image()
+let flag = new Image()
 let img = new Image()
-// flag.src = 'images/small-red-flag.jpg'
 let collision = 0;
+let checkered = false;
+let round = 1;
 //make the canvas size the same as the image size
 const WIDTH = 482;
 const HEIGHT = 482;
@@ -63,9 +64,21 @@ const clear = () =>{
 const init = () => {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-  drawMazeAndTarget()
+  if(round === 1) {
+    drawMazeAndTarget()
+    // startTimer(60 * 2, time)
+  } else if(round === 2) {
+    console.log("On second round")
+  }
   return setInterval(draw, 100);
 }
+
+//reach target
+const target = (x , y) => {
+  flag.src = 'images/red-small-flag.jpg'
+  ctx.drawImage(flag,  x, y);
+}
+
 
 
 //Put an event listener on all the keys on the 
@@ -78,6 +91,7 @@ const doKeyDown = (evt) => {
         y -= dy;
         clear();
         checkcollision();
+        target(115, 460,)
         if (collision == 1){
           y += dy;
           collision = 0;
@@ -89,6 +103,7 @@ const doKeyDown = (evt) => {
       if (y + dy < HEIGHT ){
         y += dy;
         clear();
+        target(115, 460)
         checkcollision();
         if (collision == 1){
           y -= dy;
@@ -101,6 +116,7 @@ const doKeyDown = (evt) => {
       if (x - dx > 0){
         x -= dx;
         clear();
+        target(115, 460)
         checkcollision();
         if (collision == 1){
           x += dx;
@@ -113,6 +129,7 @@ const doKeyDown = (evt) => {
     if ((x + dx < WIDTH)){
       x += dx;
       clear();
+      target(115, 460)
       checkcollision();
       if (collision == 1){
         x -= dx;
@@ -131,6 +148,10 @@ const checkcollision = () => {
     for (let i = 0; i < pix.length; i += 4) {
         if (pix[i] == 0) {
             collision = 1; //this means the rectangle can move
+        } else if (pix[1] == 26 || pix[1] == 137 || pix[1] == 253) {
+          checkered = true;
+        } else {
+          checkered = false;
         }
     }
     return imgd;
@@ -149,6 +170,7 @@ const draw = () => {
   ctx.fillStyle = "green";
   rect(x, y, 10, 10);
 }
+
 //instatiate the function init()
 init();
 checkcollision()
