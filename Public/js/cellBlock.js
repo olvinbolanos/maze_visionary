@@ -2,10 +2,10 @@ let canvas;
 let ctx;
 let time = document.querySelector('#time');
 let minute = 15;
-let dx = 5;
+let dx = 5; 
 let dy = 5;
-let x = 460;
-let y = 115;
+let x = 460; //starting position for the square on X axis
+let y = 115; //starting position for the square on Y axis
 //create the image element outside
 // let flag = new Image()
 let img = new Image()
@@ -26,6 +26,7 @@ const drawMazeAndTarget= () => {
       ctx.closePath()
       ctx.fillStyle = 'red'
       ctx.fill()
+      // startTimer(minute, time)
     }
   img.src = "images/easyMaze.gif"; 
 }
@@ -47,8 +48,6 @@ const rect = (x, y, w, h) => {
   ctx.fill();
 }
 
-// const line = (x, z, startPoint, endPoint) = {}
-
 //ctx.drawImage(var holding the img, X coordinate of the top left
 //of the img, Y coordinate of the top left of the image)
 const clear = () =>{
@@ -65,7 +64,6 @@ const init = () => {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   drawMazeAndTarget()
-  startTimer(minute, time)
   return setInterval(draw, 100);
 }
 
