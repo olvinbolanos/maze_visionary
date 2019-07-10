@@ -18,5 +18,14 @@ const wonRound = () => {
   ctx.textBaseline = 'middle'
   ctx.fillText(`Congratulations!`, WIDTH / 2, HEIGHT / 2);
   ++round;
+
+  let playAgain = document.createElement('button')
+  playAgain.textContent = 'Play Again';
+  canvas.prepend(playAgain)
+  playAgain.addEventListener('click', (e) => {
+    e.preventDefault()
+    console.log('Press me and make me do something!!')
+  });
+   
   return;
 }

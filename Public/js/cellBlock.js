@@ -16,23 +16,6 @@ let round = 1;
 const WIDTH = 482;
 const HEIGHT = 482;
 const displayTime = document.querySelector('#time');
-
-
-//area canvas display
-const drawMazeAndTarget= () => {
-    img.onload = () => { //when the image is loaded, draw the image,
-      ctx.drawImage(img, 0, 0)
-      ctx.beginPath()
-      ctx.arc(120, 472, 7, 0, 2 * Math.PI, false)
-      ctx.closePath()
-      ctx.fillStyle = 'red'
-      ctx.fill()
-      // startTimer(minute, time)
-    }
-  img.src = "images/easyMaze.gif"; 
-}
-
-
 //stops here
 
 //this will be our small rec piece moving
@@ -66,7 +49,7 @@ const init = () => {
   ctx = canvas.getContext("2d");
   if(round === 1) {
     drawMazeAndTarget()
-    // startTimer(60 * 2, time)
+    startTimer(60 * 2, time)
   } else if(round === 2) {
     console.log("On second round")
   }
