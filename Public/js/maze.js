@@ -7,10 +7,10 @@ const drawMazeAndTarget= (canvasX, canvasY) => {
       ctx.fillStyle = 'red'
       ctx.fill()
     }
-      x = 460;
-      y = 115;
-//   x = 120; //starting position for the square on X axis
-//   y = 440; left this to test later
+      // x = 460;
+      // y = 115;
+    x = 120; //starting position for the square on X axis
+    y = 440; //left this to test later
   minutes = 10;
   img.src = "images/easyMaze.gif"; 
 }

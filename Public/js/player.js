@@ -1,11 +1,10 @@
 class Player {
     constructor(name) {
       this.name = name;
-      this.characters = [];
       this.status = 0;
       this.lives = 3;
-
     }
+
     initPlayer() {
         let ctx = document.querySelector('canvas').getContext('2d');
         let img = document.createElement('img');
@@ -28,8 +27,10 @@ class Player {
 
 
     getName() {
-        let playerName = document.querySelector('#player')
-        playerName.textContent = `${this.name}`;
+        let playerName = document.querySelectorAll('.player')
+        for (let i = 0; i < playerName.length; i++) {
+            playerName[i].textContent = `${this.name}`
+        }
     }
 
     showLife() {
@@ -46,18 +47,16 @@ class Player {
       livesLeft.textContent = `${this.lives}`;
     }
 
-    winRound(count) {
+    updateRound(count) {
       let updateRound = document.querySelector('#round');
       updateRound.textContent = `${count}`;
     }
 
     wonGame() {
         let heading = document.querySelector('h1')[1];
-        heading.removeAttribute('class', 'show');
+        heading.removeAttribute('class', 'hide');
         heading.setAttribute('class', 'show');
     }
-
-
 }
 
 

@@ -1,5 +1,6 @@
 let canvas;
 let ctx;
+let player = [];
 let time = document.querySelector('#time');
 let minutes = 0;
 let dx = 5; 
@@ -7,10 +8,10 @@ let dy = 5;
 let x = 0; //starting position for the square on X axis
 let y = 0; //starting position for the square on Y axis
 //create the image element outside
-let flag = new Image()
-let img = new Image()
-let collision = 0;
-let checkered = false;
+let flag = new Image() //target
+let img = new Image() //map
+let collision = 0; //don't run into
+let checkered = false; //
 let round = 1;
 let go;
 //make the canvas size the same as the image size
@@ -169,27 +170,35 @@ const draw = () => {
   rect(x, y, 10, 10);
 }
 
-//instatiate the function init()
+//instatiate the function init() game.
 let clickMe = document.querySelector('.clickMe');
 clickMe.addEventListener('click', ((e) => {
- e.preventDefault()
- let input = document.querySelector('input');
- if (input.value.length >= 2) {
-   let newPlayer = new Player(input.value)
-   console.log(input)
-   init()
-   
-   input.value = '';
-   let primaryBut = document.querySelectorAll('.btn-primary')[1]
-   primaryBut.style.visibility = 'hidden'
-   console.log(primaryBut)
-   window.addEventListener('keydown', doKeyDown, true)
- } else {
-   input.value = '';
-   console.log('keep working')
- }
-}))
+  e.preventDefault()
+  let input = document.querySelector('input');
+  if (input.value.length >= 2) {
+    newPlayer = new Player(`${input.value}`)
+    newPlayer.getName();
+    newPlayer.updateRound(round)
+    newPlayer.showLife()
+    player.push(newPlayer);
 
-// init();
-//create my timer
-// window.addEventListener('keydown', doKeyDown, true)
+    let primaryBut = document.querySelectorAll('.btn-primary')[1]
+    let pause = document.querySelectorAll('.btn-primary')[0];
+    let reset = document.querySelectorAll('.btn-primary')[2];
+    
+    pause.removeAttribute('class', 'hide')
+    reset.removeAttribute('class', 'hide')
+    primaryBut.style.visibility = 'hidden'
+
+    input.value = '';
+    init()
+    window.addEventListener('keydown', doKeyDown, true)
+  } else {
+    input.value = '';
+    console.log('keep working')
+  }
+ }));
+
+ 
+
+ 

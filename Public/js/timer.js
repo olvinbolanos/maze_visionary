@@ -41,6 +41,9 @@ const timer = () => {
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
     ctx.fillText(`Time's Up!`, WIDTH / 2, HEIGHT / 2);
+    let curPlayer = player[0];
+    curPlayer.lostRound()
+
   } 
     return;
     
@@ -51,7 +54,6 @@ timer()
 //starts counting down every second the timer 
 go = setInterval(timer, 1000);
 //clear the timer if it hits 10
-
 }
 
 

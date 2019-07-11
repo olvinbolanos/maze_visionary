@@ -8,6 +8,7 @@ const wonRound = () => {
   ctx.fillText(`Congratulations!`, WIDTH / 2, HEIGHT / 2);
   anotherRound()
   clearInterval(go)
+  let curPlayer = player[0];
 }
 
 const anotherRound= () => {
@@ -21,7 +22,7 @@ const anotherRound= () => {
     console.log(round)
     makeWhite(0, 0, WIDTH, HEIGHT)
     init()
-    checkered == false;
+    checkered == false; 
     window.addEventListener('keydown', doKeyDown, true)
   });
 } 
