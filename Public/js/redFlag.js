@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // const makeFlag = () => {
     
 //     flag.onload = () => {
@@ -9,9 +9,6 @@
 //     ctx.drawImage(flag,  120, 472);
 // }
 
-=======
-
-
 // let target = (x, y, w, h) => {
 //     ctx.beginPath()
 //     ctx.fillStyle = 'blue'
@@ -19,4 +16,4 @@
 //     ctx.closePath()
 //     ctx.fill();
 // }
->>>>>>> wonRound
+

@@ -5,22 +5,63 @@
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" >
         <title>Maze_Project</title>
         <link rel="icon" type="image/x-icon" href="https://tse2.mm.bing.net/th?id=OIP.BRuHLHUweDcYYFbPg2PgvAHaIa&amp;pid=Api&amp;P=0&amp;w=300&amp;h=300">
+        <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Gloria+Hallelujah&display=swap" rel="stylesheet">    </head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="./css/styles.css" charset="utf-8"> 
-    </head>
-    <body>
+        <body>
         <header>
             <h1>Welcome to the most amazing Maze Game!</h1>
-            <p>I don't think no other website will render files like mine.</p>
         </header>
-<<<<<<< HEAD
-            <button id="start">start</button>
-=======
+            <h1 class="hide">Congratulations! <span class="player"></span> You Have Won The Game!</h1>
+            <p id="displayRounds">You are in round <span id="round"></span> of the game.</p>
+            <p><span class="player"></span> has <span id="lives"></span>chance(s) to play.</p>
             <div id="playButton"><button id="anotherGame">PlayAgain</button></div>
->>>>>>> wonRound
-            <canvas id="canvas" width="482" height="482"></canvas>
-            
-            <p>Timer: <span id="time"></span></p>
+            <form>
+                <div ></div>
+                <div ></div>
+            </form>
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Launch demo modal
+      </button>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Amazing Maze</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Hello Guest</br>
+              Welcome to my Amazing Maze! The rules of the game are as follows:</br>
+              1. Get to the Flag and complete the round within the time limit.</br>
+              2. Pass the round and get to the next maze.</br>
+              3. You only have three lives so use them wisely.</br>
+              4. Enter your name and play.
+              <label for="name" >Name (must be between 2-10 characters):</label>
+              <input for="name" maxlength="10" minlength="2" name="name" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary clickMe" data-dismiss="modal">Play Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- end of Modal for Rules of the Game -->
+            <canvas id="canvas" width="482" height="482"></canvas>
+            <div id="border">
+                <div id="animate">
+                    <p>Timer: <span id="time"></span></p>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
             <script type="text/javascript" src="js/maze.js"></script>
             <script type="text/javascript" src="js/timer.js"></script>
             <script type="text/javascript" src="js/wonRound.js"></script>

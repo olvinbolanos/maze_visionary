@@ -32,6 +32,8 @@ const rect = (x, y, w, h) => {
   ctx.fill();
 }
 
+
+
 //ctx.drawImage(var holding the img, X coordinate of the top left
 //of the img, Y coordinate of the top left of the image)
 const clear = () =>{
@@ -157,7 +159,7 @@ const makeWhite = (x, y, w, h) => {
     ctx.beginPath();
     ctx.rect(x, y, w, h);
     ctx.closePath();
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = 'white';
     ctx.fill();
 }
 // this is the drawing of our rectangle
@@ -168,6 +170,18 @@ const draw = () => {
 }
 
 //instatiate the function init()
-init();
+let clickMe = document.querySelector('.clickMe');
+clickMe.addEventListener('click', (e) => {
+ e.preventDefault()
+ let input = document.querySelector('input');
+ if (input.value.length >= 2 || input.value.length <= 10) {
+   init()
+   window.addEventListener('keydown', doKeyDown, true)
+ } else {
+   console.log('keep working')
+ }
+
+})
+// init();
 //create my timer
-window.addEventListener('keydown', doKeyDown, true)
+// window.addEventListener('keydown', doKeyDown, true)
