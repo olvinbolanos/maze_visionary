@@ -17,15 +17,22 @@ const wonRound = () => {
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
   ctx.fillText(`Congratulations!`, WIDTH / 2, HEIGHT / 2);
-  ++round;
+  anotherRound()
+  clearInterval(go)
+  console.log(round)
+  console.log(checkered)
+}
 
-  let playAgain = document.createElement('button')
-  playAgain.textContent = 'Play Again';
-  canvas.prepend(playAgain)
+const anotherRound= () => {
+  const playAgain = document.querySelector('#anotherGame')
+  const placer = document.querySelector('#playButton');
+  placer.style.visibility = 'visible'
   playAgain.addEventListener('click', (e) => {
     e.preventDefault()
-    console.log('Press me and make me do something!!')
+    placer.style.visibility = 'hidden';
+    ++round;
+    init()
+    checkered == false;
+    window.addEventListener('keydown', doKeyDown, true)
   });
-   
-  return;
-}
+} 

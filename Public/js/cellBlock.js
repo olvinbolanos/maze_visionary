@@ -1,17 +1,18 @@
 let canvas;
 let ctx;
 let time = document.querySelector('#time');
-let minute = 15;
+let minutes = 0;
 let dx = 5; 
 let dy = 5;
-let x = 120; //starting position for the square on X axis
-let y = 440; //starting position for the square on Y axis
+let x = 0; //starting position for the square on X axis
+let y = 0; //starting position for the square on Y axis
 //create the image element outside
 let flag = new Image()
 let img = new Image()
 let collision = 0;
 let checkered = false;
 let round = 1;
+let go;
 //make the canvas size the same as the image size
 const WIDTH = 482;
 const HEIGHT = 482;
@@ -48,11 +49,13 @@ const init = () => {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   if(round === 1) {
-    drawMazeAndTarget()
-    startTimer(60 * 2, time)
-  } else if(round === 2) {
-    console.log("On second round")
-  }
+    drawMazeAndTarget(120, 472)
+    console.log('congrats you passed round one')
+  } 
+  if(round === 2) {
+      drawSecMazeAndTarget(240, 410)
+    }
+  startTimer(60 * minutes, time)
   return setInterval(draw, 100);
 }
 
@@ -74,7 +77,11 @@ const doKeyDown = (evt) => {
         y -= dy;
         clear();
         checkcollision();
+        if (round === 1) {
         target(115, 460,)
+        } else if ( round === 2) {
+            target(230, 410,)
+          }
         if (collision == 1){
           y += dy;
           collision = 0;
@@ -86,7 +93,11 @@ const doKeyDown = (evt) => {
       if (y + dy < HEIGHT ){
         y += dy;
         clear();
-        target(115, 460)
+        if (round === 1) {
+          target(115, 460)
+        } else if ( round === 2) {
+            target(230, 410,)
+          }
         checkcollision();
         if (collision == 1){
           y -= dy;
@@ -99,7 +110,11 @@ const doKeyDown = (evt) => {
       if (x - dx > 0){
         x -= dx;
         clear();
-        target(115, 460)
+        if (round === 1) {
+          target(115, 460)
+        } else if ( round === 2) {
+            target(230, 410,)
+          }
         checkcollision();
         if (collision == 1){
           x += dx;
@@ -112,7 +127,11 @@ const doKeyDown = (evt) => {
     if ((x + dx < WIDTH)){
       x += dx;
       clear();
-      target(115, 460)
+      if (round === 1) {
+        target(115, 460)
+      } else if ( round === 2) {
+          target(230, 410,)
+        }
       checkcollision();
       if (collision == 1){
         x -= dx;
@@ -132,10 +151,8 @@ const checkcollision = () => {
         if (pix[i] == 0) {
             collision = 1; //this means the rectangle can move
         } else if (pix[1] == 26 || pix[1] == 137 || pix[1] == 253) {
-          checkered = true;
-        } else {
-          checkered = false;
-        }
+          wonRound()
+        } 
     }
     return imgd;
 }
