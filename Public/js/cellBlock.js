@@ -16,7 +16,6 @@ let go;
 //make the canvas size the same as the image size
 const WIDTH = 482;
 const HEIGHT = 482;
-const displayTime = document.querySelector('#time');
 //stops here
 
 //this will be our small rec piece moving
@@ -142,7 +141,6 @@ const checkTarget = () => {
 
 const checkcollision = () => {
     let imgd = ctx.getImageData(x, y, 15, 15);
-    
     let pix = imgd.data;
     for (let i = 0; i < pix.length; i += 4) {
         if (pix[i] == 0) {
