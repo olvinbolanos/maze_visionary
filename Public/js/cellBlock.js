@@ -1,37 +1,22 @@
 let canvas;
 let ctx;
 let time = document.querySelector('#time');
-let minute = 15;
+let minutes = 0;
 let dx = 5; 
 let dy = 5;
-let x = 460; //starting position for the square on X axis
-let y = 115; //starting position for the square on Y axis
+let x = 0; //starting position for the square on X axis
+let y = 0; //starting position for the square on Y axis
 //create the image element outside
-// let flag = new Image()
+let flag = new Image()
 let img = new Image()
-// flag.src = 'images/small-red-flag.jpg'
 let collision = 0;
+let checkered = false;
+let round = 1;
+let go;
 //make the canvas size the same as the image size
 const WIDTH = 482;
 const HEIGHT = 482;
 const displayTime = document.querySelector('#time');
-
-
-//area canvas display
-const drawMazeAndTarget= () => {
-    img.onload = () => { //when the image is loaded, draw the image,
-      ctx.drawImage(img, 0, 0)
-      ctx.beginPath()
-      ctx.arc(120, 472, 7, 0, 2 * Math.PI, false)
-      ctx.closePath()
-      ctx.fillStyle = 'red'
-      ctx.fill()
-      // startTimer(minute, time)
-    }
-  img.src = "images/easyMaze.gif"; 
-}
-
-
 //stops here
 
 //this will be our small rec piece moving
@@ -63,9 +48,24 @@ const clear = () =>{
 const init = () => {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-  drawMazeAndTarget()
+  if(round === 1) {
+    drawMazeAndTarget(120, 472)
+    console.log('congrats you passed round one')
+  } else if (round === 2) {
+      drawSecMazeAndTarget(240, 410)
+    } else {
+      drawThirdMazeAndTarget(380, 240)
+    }
+  startTimer(60 * minutes, time)
   return setInterval(draw, 100);
 }
+
+//reach target
+const target = (x , y) => {
+  flag.src = 'images/red-small-flag.jpg'
+  ctx.drawImage(flag,  x, y);
+}
+
 
 
 //Put an event listener on all the keys on the 
@@ -78,6 +78,7 @@ const doKeyDown = (evt) => {
         y -= dy;
         clear();
         checkcollision();
+        checkTarget()
         if (collision == 1){
           y += dy;
           collision = 0;
@@ -89,6 +90,7 @@ const doKeyDown = (evt) => {
       if (y + dy < HEIGHT ){
         y += dy;
         clear();
+        checkTarget()
         checkcollision();
         if (collision == 1){
           y -= dy;
@@ -101,6 +103,7 @@ const doKeyDown = (evt) => {
       if (x - dx > 0){
         x -= dx;
         clear();
+        checkTarget()
         checkcollision();
         if (collision == 1){
           x += dx;
@@ -113,6 +116,7 @@ const doKeyDown = (evt) => {
     if ((x + dx < WIDTH)){
       x += dx;
       clear();
+      checkTarget()
       checkcollision();
       if (collision == 1){
         x -= dx;
@@ -122,16 +126,30 @@ const doKeyDown = (evt) => {
     break;
     }
 }
+
+//check target rounds and run function
+const checkTarget = () => {
+  if (round === 1) {
+    target(115, 460)
+  } else if ( round === 2) {
+      target(230, 410,)
+    } else if (round === 3) {
+      target(365, 235)
+      }
+}
 //this moves the rectangle within the canvas by checking its
 //bounds
+
 const checkcollision = () => {
     let imgd = ctx.getImageData(x, y, 15, 15);
     let pix = imgd.data;
-    console.log(pix[1])
     for (let i = 0; i < pix.length; i += 4) {
-        if (pix[i] == 0) {
+        if (pix[i] == 0) { //
             collision = 1; //this means the rectangle can move
-        }
+        } 
+    }
+    if (pix[1] === 26 || pix[1] === 137 || pix[1] === 251) {
+      wonRound()
     }
     return imgd;
 }
@@ -149,8 +167,8 @@ const draw = () => {
   ctx.fillStyle = "green";
   rect(x, y, 10, 10);
 }
+
 //instatiate the function init()
 init();
-// checkcollision()
 //create my timer
 window.addEventListener('keydown', doKeyDown, true)
