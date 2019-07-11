@@ -57,7 +57,7 @@ const init = () => {
     } else {
       drawThirdMazeAndTarget(380, 240)
     }
-  startTimer(60 * minutes, time)
+  startTimer(60, time)
   return setInterval(draw, 100);
 }
 
@@ -171,17 +171,26 @@ const draw = () => {
 
 //instatiate the function init()
 let clickMe = document.querySelector('.clickMe');
-clickMe.addEventListener('click', (e) => {
+clickMe.addEventListener('click', ((e) => {
  e.preventDefault()
  let input = document.querySelector('input');
  if (input.value.length >= 2 || input.value.length <= 10) {
+   let newPlayer = new Player(input.value)
+   console.log(input)
    init()
+   
+   input.value = '';
+   let primaryBut = document.querySelectorAll('.btn-primary')[0]
+   primaryBut.style.visibility = 'hidden'
+   console.log(primaryBut)
    window.addEventListener('keydown', doKeyDown, true)
  } else {
    console.log('keep working')
+   input.value = '';
+   
  }
+}))
 
-})
 // init();
 //create my timer
 // window.addEventListener('keydown', doKeyDown, true)
