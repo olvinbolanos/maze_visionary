@@ -8,6 +8,3 @@
 //     ctx.drawImage(flag,  120, 472);
 // }
 
-let counter = require('./player')
-
-console.log(counter('going', 'gone'))

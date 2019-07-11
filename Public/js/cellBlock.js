@@ -1,5 +1,3 @@
-let startTimer = require('./timer');
-
 let canvas;
 let ctx;
 let time = document.querySelector('#time');
