@@ -12,8 +12,14 @@ h1 {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .lost {
   border: 2px solid black;
   box-shadow: 2px 2px 2px yellow;
 }
 
+=======
+#playButton {
+    visibility: hidden;
+}
+>>>>>>> wonRound

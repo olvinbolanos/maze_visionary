@@ -3,8 +3,8 @@ const startTimer = (duration, display) => {
     //second parameter takes the setting on the page
     console.log('Start time....')
       let start = Date.now(), diff, min, sec;
-      
-const timer = () => {
+     
+const timer = () => {    
     //get the number of seconds that have passed
     // immediately invoke startTimer() at the end
     //make this easy with just 8 lines of code
@@ -19,7 +19,7 @@ const timer = () => {
     //get the second parameter which will be an element
     //and display the minutes and seconds
     display.textContent = `${min} : ${sec}`;
-    
+
     if (Math.round(diff) <= 10 && Math.round(diff) > 5) {
         //this sets a small part of the canvas to orange
         //when under 10 seconds
@@ -30,7 +30,7 @@ const timer = () => {
         //if under 5 seconds
         ctx.fillStyle = 'red';
         ctx.fillRect(20, 20, 150, 150)
-    } 
+    }
     
     if (diff <= 0) {
       //check if time is lesser than or equal to 0
@@ -41,20 +41,25 @@ const timer = () => {
       makeWhite(0, 0, WIDTH, HEIGHT)
       ctx.font = '40px Arial'
       ctx.fillStyle = '#FF0000'
-      ctx.fillRect(20, 20, 150, 150)
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       ctx.fillText(`Time's Up!`, WIDTH / 2, HEIGHT / 2);
+    } 
       return;
-    }
+      
   };
   //we don't want to wait a full second before the timer starts right 
   //invoke the timer
   timer()
   //starts counting down every second the timer 
-  let go = setInterval(timer, 1000);
+  go = setInterval(timer, 1000);
   //clear the timer if it hits 10
+  
  }
 
+<<<<<<< HEAD
  module.exports = startTimer;
+=======
+
+>>>>>>> wonRound
 
