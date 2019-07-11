@@ -174,20 +174,19 @@ let clickMe = document.querySelector('.clickMe');
 clickMe.addEventListener('click', ((e) => {
  e.preventDefault()
  let input = document.querySelector('input');
- if (input.value.length >= 2 || input.value.length <= 10) {
+ if (input.value.length >= 2) {
    let newPlayer = new Player(input.value)
    console.log(input)
    init()
    
    input.value = '';
-   let primaryBut = document.querySelectorAll('.btn-primary')[0]
+   let primaryBut = document.querySelectorAll('.btn-primary')[1]
    primaryBut.style.visibility = 'hidden'
    console.log(primaryBut)
    window.addEventListener('keydown', doKeyDown, true)
  } else {
-   console.log('keep working')
    input.value = '';
-   
+   console.log('keep working')
  }
 }))
 
