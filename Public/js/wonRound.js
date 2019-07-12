@@ -5,15 +5,27 @@ const wonRound = () => {
   ctx.fillStyle = '#FF0000'
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
-<<<<<<< HEAD
-  ctx.fillText(`Congratulations!\n You passed round ${round}`, WIDTH / 2, HEIGHT / 2);
-=======
   ctx.fillText(`Congratulations!`, WIDTH / 2, HEIGHT / 2);
   ++round;
->>>>>>> MVP
   anotherRound()
   clearInterval(go)
-  
+}
+
+const wonGame = () => {
+  let heading = document.querySelectorAll('h1')[1];
+  heading.removeAttribute('class', 'hide');
+  heading.setAttribute('class', 'show');
+  let displayRounds = document.querySelector('#displayRounds');
+  displayRounds.style.visibility = 'hidden';
+
+  makeWhite(0, 0, WIDTH, HEIGHT)
+  ctx.font = '40px Arial'
+  ctx.fillStyle = '#FF0000'
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  ctx.fillText(`You've Won!`, WIDTH / 2, HEIGHT / 2);
+  clearInterval(go)
+  window.removeEventListener('keydown', doKeyDown, true)
 }
 
 const anotherRound= () => {

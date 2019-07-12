@@ -21,10 +21,10 @@ const drawSecMazeAndTarget= (canvasX, canvasY) => {
       ctx.closePath()
       ctx.fill()
     }
-    x = 80; //starting position for the square on X axis
-    y = 75;
-    // x = 230; left this to test later
-    // y = 380;
+    // x = 80; //starting position for the square on X axis
+    // y = 75;
+    x = 230; //left this to test later
+    y = 380;
     img.src = "images/pinocchio-maze.gif"; 
 }
 
@@ -36,6 +36,9 @@ const drawThirdMazeAndTarget = (canvasX, canvasY) => {
       ctx.closePath()
       ctx.fill()
     }
-    x = 115;
-    y = 265;    img.src = 'images/curiousGeorge.jpg';
+    // x = 115;
+    // y = 265;    
+    x = 355;
+    y = 265;
+    img.src = 'images/curiousGeorge.jpg';
 }

@@ -55,10 +55,8 @@ const init = () => {
   ctx = canvas.getContext("2d");
     if(round === 1) {
       drawMazeAndTarget(120, 472)
-      clearInterval(go)
     } else if (round === 2) {
         drawSecMazeAndTarget(240, 410)
-        clearInterval(go)
       } else {
         drawThirdMazeAndTarget(380, 240)
         clearInterval(go)
@@ -159,7 +157,11 @@ const checkcollision = () => {
         } 
     }
     if (pix[1] === 26 || pix[1] === 137 || pix[1] === 251) {
-      wonRound()
+      if(round < 3) {
+        wonRound()
+      } else {
+        wonGame()
+      }
     }
     return imgd;
 }
@@ -184,7 +186,7 @@ clickMe.addEventListener('click', ((e) => {
   e.preventDefault()
   let input = document.querySelector('input');
   if (input.value.length >= 2) {
-    newPlayer = new Player(`${input.value}`)
+    let newPlayer = new Player(`${input.value}`)
     newPlayer.getName();
     newPlayer.updateRound(round)
     newPlayer.showLife()
@@ -201,15 +203,14 @@ clickMe.addEventListener('click', ((e) => {
     input.value = '';
     init()
     window.addEventListener('keydown', doKeyDown, true)
-    
-  } else {
-    input.value = '';
-    console.log('keep working')
-  }
- }));
-
-    
-
+      
+    } else {
+      input.value = '';
+      console.log('keep working')
+    }
+   }));
+ 
+    //game reset function
     const gameOver = () => {
       location.reload()
 
@@ -219,7 +220,7 @@ clickMe.addEventListener('click', ((e) => {
     reset.addEventListener('click', (e) => {
       gameOver()
     });
-
+    // Pause encapsulation
     const togglePause = () => {
       if(!paused) {
         paused = true;

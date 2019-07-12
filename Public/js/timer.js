@@ -68,6 +68,7 @@ const timesUp = () => {
   playbutton.style.visibility = 'visible'
   anotherRound()
   clearInterval(go)
+  window.removeEventListener('keydown', doKeyDown, true)
 }
 
 const gameClosed= () => {
@@ -77,9 +78,10 @@ const gameClosed= () => {
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
   ctx.fillText(`Game Over!`, WIDTH / 2, HEIGHT / 2);
-  let curPlayer = player[0];
-  curPlayer.lostRound()
+  let life = document.querySelector('#lives');
+  life.textContent = '0';
   clearInterval(go)
+  window.removeEventListener('keydown', doKeyDown, true)
 }
 
 

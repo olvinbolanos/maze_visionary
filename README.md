@@ -4,18 +4,19 @@ javascript
 
 ## Introduction
 
-In this game, the user would be able to move around the keys and move through the maze and find their exit at the end of the maze. In fact, as the user moves along each path, they will earn points and there would also be a time limit to complete each game. Most of this game would be developed in javascript, with nodeJS to render my files through HTTP. This would be my first time using a canvas. However, it would just be for design purposes and not for anything else in particular.
+In this game, the user would be able to move around using the arrow keys and move through the maze to find the target at the end of the maze. In fact, as the user moves along each path, there will be a time limit to complete each round. Most of this game would be developed in javascript, with nodeJS to render my files asynchronously. This would be my first time using a canvas. The difficulties of learning canvas in one week was very exhausting and demanding, but canvas has many features that you can use to design a game. However, it would just be for design purposes and not for anything else in particular.
 
-This game would help me further my development as a programmer and I would like to start a new project. 
 
 ##Set Up
 
-1. There will be a maze.js file that would be taking in parameters to know where the user would be starting at and where they would be ending at. 
+1. There will be a maze.js file that would be taking in parameters to know where the user would be starting at and where they would be ending at (target would be a black circle). 
 
-2. The player would have to be built on a seperate javascript page and it would be a class where the player would have health, hungry, and a location finder to know where exactly the player is at on the canvas.
+2. The player (MVP) would have to be built on a seperate javascript page and it would be a class where the player would have approximately three lives and a name to initiate the game.
+
+3. You will have to run this game using nodeJS or another server side host to run index.js
 
 ## Instructions
- - The user must use a server side network «« meaning that the only way this game could be run is if the user runs this game on a network connection througg the server in order for the game to check the data on the canvas because of a little method called getImageData() that only works on servers.
+ - The user must use a server side network «« meaning that the only way this game could be run is if the user runs this game on a network connection through the server in order for the game to check the data on the canvas because of a little method called getImageData() that only works on servers to receive back information about the screen pixels.
 
  - On here, run nodemon in the console.
 
@@ -23,3 +24,14 @@ This game would help me further my development as a programmer and I would like 
 
 - Solving these mazes takes time and effort, hope you have a fun time doing just that.
 
+```
+---
+title: "Amazing Maze"
+date: 2019-07-11 12h:00:00
+---
+
+```
+
+## <a name="rendering-pane"></a>The Rendering ??
+This is where you can download my file and start playing. It's awesome and you can enjoy the experience.  
+![Rendering preferences pane](http://d.pr/i/rT4d+)

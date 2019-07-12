@@ -54,6 +54,15 @@ class Player {
         let heading = document.querySelector('h1')[1];
         heading.removeAttribute('class', 'hide');
         heading.setAttribute('class', 'show');
+        let displayRounds = document.querySelector('#displayRounds');
+        displayRounds.style.visibility = 'hidden';
+        makeWhite(0, 0, WIDTH, HEIGHT)
+        ctx.font = '40px Arial'
+        ctx.fillStyle = '#FF0000'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'middle'
+        ctx.fillText(`You've Won!`, WIDTH / 2, HEIGHT / 2);
+
     }
 }
 
