@@ -12,7 +12,7 @@ let flag = new Image() //target
 let img = new Image() //map
 let collision = 0; //don't run into
 let checkered = false; //
-let round = 3;
+let round = 1;
 let go;
 let clickMe;
 let reset;
@@ -160,8 +160,7 @@ const checkcollision = () => {
       if(round < 3) {
         wonRound()
       } else {
-        let newPlayer = player[0];
-        player.wonGame()
+        wonGame()
       }
     }
     return imgd;
