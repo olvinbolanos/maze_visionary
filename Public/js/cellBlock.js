@@ -207,9 +207,8 @@ clickMe.addEventListener('click', ((e) => {
     console.log('keep working')
   }
  }));
-
-    
-
+ 
+    //game reset function
     const gameOver = () => {
       location.reload()
 
@@ -219,7 +218,7 @@ clickMe.addEventListener('click', ((e) => {
     reset.addEventListener('click', (e) => {
       gameOver()
     });
-
+    // Pause encapsulation
     const togglePause = () => {
       if(!paused) {
         paused = true;

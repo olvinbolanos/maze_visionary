@@ -9,7 +9,6 @@ const wonRound = () => {
   ++round;
   anotherRound()
   clearInterval(go)
-  
 }
 
 const anotherRound= () => {
