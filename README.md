@@ -2,6 +2,8 @@
 javascript
 ## Project
 
+
+![MacDown Screenshot](https://i.imgur.com/Bc9LXI5.png)
 ## Introduction
 
 In this game, the user would be able to move around using the arrow keys and move through the maze to find the target at the end of the maze. In fact, as the user moves along each path, there will be a time limit to complete each round. Most of this game would be developed in javascript, with nodeJS to render my files asynchronously. This would be my first time using a canvas. The difficulties of learning canvas in one week was very exhausting and demanding, but canvas has many features that you can use to design a game. However, it would just be for design purposes and not for anything else in particular.
@@ -32,6 +34,5 @@ date: 2019-07-11 12h:00:00
 
 ```
 
-## <a name="rendering-pane"></a>The Rendering ??
+## <a name="rendering-pane"></a>The Rendering 
 This is where you can download my file and start playing. It's awesome and you can enjoy the experience.  
-![Rendering preferences pane](http://d.pr/i/rT4d+)
