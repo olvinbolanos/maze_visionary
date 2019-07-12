@@ -5,9 +5,15 @@ const wonRound = () => {
   ctx.fillStyle = '#FF0000'
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
+<<<<<<< HEAD
   ctx.fillText(`Congratulations!\n You passed round ${round}`, WIDTH / 2, HEIGHT / 2);
+=======
+  ctx.fillText(`Congratulations!`, WIDTH / 2, HEIGHT / 2);
+  ++round;
+>>>>>>> MVP
   anotherRound()
   clearInterval(go)
+  
 }
 
 const anotherRound= () => {
@@ -17,11 +23,10 @@ const anotherRound= () => {
   playAgain.addEventListener('click', (e) => {
     e.preventDefault()
     placer.style.visibility = 'hidden';
-    ++round;
     console.log(round)
     makeWhite(0, 0, WIDTH, HEIGHT)
     init()
-    checkered == false;
+    checkered == false; 
     window.addEventListener('keydown', doKeyDown, true)
   });
 } 

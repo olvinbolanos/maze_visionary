@@ -1,15 +1,82 @@
-h1 {
-    color: blue;
-}
-
 body {
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    text-align: center;;
 }
 
+canvas {
+    display: block;
+    margin: 0 auto;
+    border: 3mm ridge rgba(50, 220, 115, 0.87);
+    box-shadow: 2px 2px black;
+    box-shadow: 10px 11px 10px black;
+}
+#border {
+  border: 2px solid black;
+  height: 3em;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.btn {
+    background-color:  rgba(50, 220, 115, 0.87);
+}
+/**** modal content ****/
+.btn-primary {
+    margin: 3px;
+    background-color: rgba(50, 220, 92, 0.87);
+    box-shadow: 2px 2px 4px black;
+}
+
+.btn-primary:focus {
+    background-color: green;
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    font-size: 18px;
+    font-family: 'Architects Daughter', cursive; 
+}
+
+h5 {
+    font-size: 30px;
+    line-height: none;
+    font-family: 'Architects Daughter', cursive;   
+}
+
+/**** modal content ****/
 h1 {
+    font-size: 30px;
+    text-shadow: 3px 3px white;
     text-align: center;
+    font-family: 'Architects Daughter', cursive;  
+}
+
+.lost {
+  border: 2px solid black;
+  box-shadow: 2px 2px 2px red;
 }
 
 #playButton {
     visibility: hidden;
 }
+
+#lives {
+    color: red;
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
