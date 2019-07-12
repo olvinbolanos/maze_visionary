@@ -62,7 +62,7 @@ const init = () => {
         clearInterval(go)
       }
     if(!paused) {
-      startTimer(5 , time)
+      startTimer(60 * minutes , time)
       return setInterval(draw, 100);
     }
   
