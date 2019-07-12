@@ -12,7 +12,7 @@ let flag = new Image() //target
 let img = new Image() //map
 let collision = 0; //don't run into
 let checkered = false; //
-let round = 1;
+let round = 3;
 let go;
 let clickMe;
 let reset;
@@ -55,10 +55,8 @@ const init = () => {
   ctx = canvas.getContext("2d");
     if(round === 1) {
       drawMazeAndTarget(120, 472)
-      clearInterval(go)
     } else if (round === 2) {
         drawSecMazeAndTarget(240, 410)
-        clearInterval(go)
       } else {
         drawThirdMazeAndTarget(380, 240)
         clearInterval(go)
@@ -159,7 +157,12 @@ const checkcollision = () => {
         } 
     }
     if (pix[1] === 26 || pix[1] === 137 || pix[1] === 251) {
-      wonRound()
+      if(round < 3) {
+        wonRound()
+      } else {
+        let newPlayer = player[0];
+        player.wonGame()
+      }
     }
     return imgd;
 }
@@ -184,7 +187,7 @@ clickMe.addEventListener('click', ((e) => {
   e.preventDefault()
   let input = document.querySelector('input');
   if (input.value.length >= 2) {
-    newPlayer = new Player(`${input.value}`)
+    let newPlayer = new Player(`${input.value}`)
     newPlayer.getName();
     newPlayer.updateRound(round)
     newPlayer.showLife()
@@ -201,12 +204,12 @@ clickMe.addEventListener('click', ((e) => {
     input.value = '';
     init()
     window.addEventListener('keydown', doKeyDown, true)
-    
-  } else {
-    input.value = '';
-    console.log('keep working')
-  }
- }));
+      
+    } else {
+      input.value = '';
+      console.log('keep working')
+    }
+   }));
  
     //game reset function
     const gameOver = () => {

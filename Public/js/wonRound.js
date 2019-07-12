@@ -11,6 +11,18 @@ const wonRound = () => {
   clearInterval(go)
 }
 
+const wonRound = () => {
+  window.removeEventListener('keydown',doKeyDown, true);
+  makeWhite(0, 0, WIDTH, HEIGHT)
+  ctx.font = '40px Arial'
+  ctx.fillStyle = '#FF0000'
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  ctx.fillText(`Congratulations!`, WIDTH / 2, HEIGHT / 2);
+
+  clearInterval(go)
+}
+
 const anotherRound= () => {
   const playAgain = document.querySelector('#anotherGame')
   const placer = document.querySelector('#playButton');

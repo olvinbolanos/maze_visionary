@@ -36,8 +36,11 @@ const drawThirdMazeAndTarget = (canvasX, canvasY) => {
       ctx.closePath()
       ctx.fill()
     }
-    x = 115;
-    y = 265;    img.src = 'images/curiousGeorge.jpg';
+    // x = 115;
+    // y = 265;    
+    x = 355;
+    y = 265;
+    img.src = 'images/curiousGeorge.jpg';
 }
 
 
