@@ -1,3 +1,14 @@
+const drawUpStartinImage = () => {
+  let img = new Image()
+  let ctx = document.querySelector('canvas').getContext('2d');
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0)
+    ctx.fillRect(0, 0, 0, 0)
+  }
+  img.src = 'images/indianajones-wallpaper2.jpg'
+}
+drawUpStartinImage()
+
 const drawMazeAndTarget= (canvasX, canvasY) => {
     img.onload = () => { //when the image is loaded, draw the image,
       ctx.drawImage(img, 0, 0)
