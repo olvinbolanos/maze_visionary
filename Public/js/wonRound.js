@@ -6,9 +6,10 @@ const wonRound = () => {
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
   ctx.fillText(`Congratulations!`, WIDTH / 2, HEIGHT / 2);
+  ++round;
   anotherRound()
   clearInterval(go)
-  let curPlayer = player[0];
+  
 }
 
 const anotherRound= () => {
@@ -18,7 +19,6 @@ const anotherRound= () => {
   playAgain.addEventListener('click', (e) => {
     e.preventDefault()
     placer.style.visibility = 'hidden';
-    ++round;
     console.log(round)
     makeWhite(0, 0, WIDTH, HEIGHT)
     init()

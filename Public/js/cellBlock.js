@@ -2,7 +2,7 @@ let canvas;
 let ctx;
 let player = [];
 let time = document.querySelector('#time');
-let minutes = 0;
+let minutes = 10;
 let dx = 5; 
 let dy = 5;
 let x = 0; //starting position for the square on X axis
@@ -14,9 +14,12 @@ let collision = 0; //don't run into
 let checkered = false; //
 let round = 1;
 let go;
+let clickMe;
+let reset;
 //make the canvas size the same as the image size
 const WIDTH = 482;
 const HEIGHT = 482;
+let paused = false;
 //stops here
 
 //this will be our small rec piece moving
@@ -50,16 +53,21 @@ const clear = () =>{
 const init = () => {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-  if(round === 1) {
-    drawMazeAndTarget(120, 472)
-    console.log('congrats you passed round one')
-  } else if (round === 2) {
-      drawSecMazeAndTarget(240, 410)
-    } else {
-      drawThirdMazeAndTarget(380, 240)
+    if(round === 1) {
+      drawMazeAndTarget(120, 472)
+      clearInterval(go)
+    } else if (round === 2) {
+        drawSecMazeAndTarget(240, 410)
+        clearInterval(go)
+      } else {
+        drawThirdMazeAndTarget(380, 240)
+        clearInterval(go)
+      }
+    if(!paused) {
+      startTimer(5 , time)
+      return setInterval(draw, 100);
     }
-  startTimer(60, time)
-  return setInterval(draw, 100);
+  
 }
 
 //reach target
@@ -171,7 +179,7 @@ const draw = () => {
 }
 
 //instatiate the function init() game.
-let clickMe = document.querySelector('.clickMe');
+clickMe = document.querySelector('.clickMe');
 clickMe.addEventListener('click', ((e) => {
   e.preventDefault()
   let input = document.querySelector('input');
@@ -193,12 +201,39 @@ clickMe.addEventListener('click', ((e) => {
     input.value = '';
     init()
     window.addEventListener('keydown', doKeyDown, true)
+    
   } else {
     input.value = '';
     console.log('keep working')
   }
  }));
 
- 
+    
 
- 
+    const gameOver = () => {
+      location.reload()
+
+    };
+
+    reset = document.querySelectorAll('button')[3]
+    reset.addEventListener('click', (e) => {
+      gameOver()
+    });
+
+    const togglePause = () => {
+      if(!paused) {
+        paused = true;
+      } else if (paused) {
+        paused = false;
+      }
+    }
+
+    window.addEventListener('click', (e) => {
+      let target = e.target.innerText;
+      if(target == 'Pause') {
+        togglePause()
+      }
+    });
+
+   
+

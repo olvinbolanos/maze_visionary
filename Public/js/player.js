@@ -1,7 +1,6 @@
 class Player {
     constructor(name) {
       this.name = name;
-      this.status = 0;
       this.lives = 3;
     }
 
@@ -10,7 +9,7 @@ class Player {
         let img = document.createElement('img');
         img.src = `images/${this.character}`;
         let spriteW = 10, spriteH= 10;
-        img.addEventListener('load', () => {
+        img.addEventListener('load', (e) => {
             let cycle = 0;
             setInterval(() => {
                 ctx.clearRect(0, 0, spriteW, spriteH);
@@ -22,7 +21,6 @@ class Player {
                 cycle = (cycle + 1) % 8 // count how many sprites there are in the image 
             }, 120);
         });
-
     }
 
 
