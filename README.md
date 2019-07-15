@@ -1,5 +1,9 @@
 # maze_visionary
 javascript
+nodeJS
+Bootstrap4
+CSS
+
 ## Project
 
 

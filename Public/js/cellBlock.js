@@ -61,10 +61,10 @@ const init = () => {
         drawThirdMazeAndTarget(380, 240)
         clearInterval(go)
       }
-    if(!paused) {
-      startTimer(60 * minutes , time)
+    
+      startTimer(15 , time)
       return setInterval(draw, 100);
-    }
+    
   
 }
 
@@ -138,7 +138,7 @@ const doKeyDown = (evt) => {
 //check target rounds and run function
 const checkTarget = () => {
   if (round === 1) {
-    target(115, 460)
+    target(110, 455)
   } else if ( round === 2) {
       target(230, 410,)
     } else if (round === 3) {
@@ -220,21 +220,21 @@ clickMe.addEventListener('click', ((e) => {
     reset.addEventListener('click', (e) => {
       gameOver()
     });
-    // Pause encapsulation
-    const togglePause = () => {
-      if(!paused) {
-        paused = true;
-      } else if (paused) {
-        paused = false;
-      }
-    }
+    // // Pause encapsulation
+    // const togglePause = () => {
+    //   if(!paused) {
+    //     paused = true;
+    //   } else if (paused) {
+    //     paused = false;
+    //   }
+    // }
 
-    window.addEventListener('click', (e) => {
-      let target = e.target.innerText;
-      if(target == 'Pause') {
-        togglePause()
-      }
-    });
+    // window.addEventListener('click', (e) => {
+    //   let target = e.target.innerText;
+    //   if(target == 'Pause') { //you already called target remove variable
+    //     togglePause()
+    //   }
+    // });
 
    
 
