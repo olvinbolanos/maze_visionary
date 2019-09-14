@@ -98,7 +98,6 @@ build/Release
 
 # Dependency directory
 .DS_Store
-.DS_Store?
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 # ===== End Node.gitignore =====
