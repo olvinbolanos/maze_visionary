@@ -62,7 +62,7 @@ const init = () => {
         clearInterval(go)
       }
     
-      startTimer(15 , time)
+      startTimer(60 * 10 , time)
       return setInterval(draw, 100);
     
   
