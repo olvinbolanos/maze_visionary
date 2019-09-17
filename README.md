@@ -38,5 +38,11 @@ date: 2019-07-11 12h:00:00
 
 ```
 
+<<<<<<< HEAD
 ## <a name="rendering-pane"></a>The Rendering 
 This is where you can download my file and start playing. It's awesome and you can enjoy the experience.  
+=======
+## <a name="rendering-pane"></a>The Rendering ??
+This is where you can download my file and start playing. It's awesome and you can enjoy the experience.  
+![Rendering preferences pane](http://d.pr/i/rT4d+)
+>>>>>>> MVP

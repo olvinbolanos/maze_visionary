@@ -32,8 +32,8 @@ const drawSecMazeAndTarget= (canvasX, canvasY) => {
       ctx.closePath()
       ctx.fill()
     }
-    //  x = 80; //starting position for the square on X axis
-    //  y = 75;
+    // x = 80; //starting position for the square on X axis
+    // y = 75;
     x = 230; //left this to test later
     y = 380;
     img.src = "images/pinocchio-maze.gif"; 
