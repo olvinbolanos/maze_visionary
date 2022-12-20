@@ -21,10 +21,14 @@ In this game, the user would be able to move around using the arrow keys and mov
 
 3. You will have to run this game using nodeJS or another server side host to run index.js
 
+4. Once downloaded, run npm install to download all the necessary files to run node. Then run in the terminal "npm start"
+
+5. Go to your browser and type: http://127.0.0.1:2020 
+
 ## Instructions
  - The user must use a server side network «« meaning that the only way this game could be run is if the user runs this game on a network connection through the server in order for the game to check the data on the canvas because of a little method called getImageData() that only works on servers to receive back information about the screen pixels.
 
- - On here, run nodemon in the console.
+ - On here, run npm start for production start
 
  - The user must follow the correct path of  the maze and not hit a wall or they will be deducted a point from there health.
 
@@ -38,11 +42,6 @@ date: 2019-07-11 12h:00:00
 
 ```
 
-<<<<<<< HEAD
-## <a name="rendering-pane"></a>The Rendering 
-This is where you can download my file and start playing. It's awesome and you can enjoy the experience.  
-=======
 ## <a name="rendering-pane"></a>The Rendering ??
-This is where you can download my file and start playing. It's awesome and you can enjoy the experience.  
-![Rendering preferences pane](http://d.pr/i/rT4d+)
->>>>>>> MVP
+## This is where you can download my file and start playing. It's awesome  and you can enjoy the experience.  
+## ![Rendering preferences pane](http://d.pr/i/rT4d+)
