@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port)
-console.log('Squares of Success is running on http://127.0.0.1:' + port)
+console.log('Maze Visionary is running on http://127.0.0.1:' + port)
 
 
 
